@@ -1,12 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Button from "./ui/Button";
 
 const slides = [
   {
@@ -18,25 +19,30 @@ const slides = [
   },
   {
     image: "/images/hero (2).jpg",
-    title1: "Welcome to Sattva",
-    title2: "Welcome to Sattva",
-    description: "We prioritize quality in everything we do.",
+    title1: "Élelmiszerbiztonság egyszerűen.",
+    title2: "Felelj meg minden előírásnak!",
+    description:
+      "A Sattva.hu tapasztalt szakemberei segítenek vállalkozásod számára a legfrissebb HACCP és munkavédelmi előírásoknak való megfelelésben, biztosítva a zökkenőmentes működést.",
   },
   {
     image: "/images/hero (3).jpg",
-    title1: "Welcome to Sattva",
-    title2: "Welcome to Sattva",
-    description: "Bringing creative solutions to the industry.",
+    title1: "Alapos ellenőrzés, nulla kockázat.",
+    title2: "Készülj fel profi módon!",
+    description:
+      "A Sattva.hu tapasztalt szakemberei segítenek vállalkozásod számára a legfrissebb HACCP és munkavédelmi előírásoknak való megfelelésben, biztosítva a zökkenőmentes működést.",
   },
   {
     image: "/images/hero (4).jpg",
-    title1: "Welcome to Sattva",
-    title2: "Welcome to Sattva",
-    description: "Bringing creative solutions to the industry.",
+    title1: "Biztonságos munkahely,",
+    title2: "nyugodt munkavégzés!",
+    description:
+      "A Sattva.hu tapasztalt szakemberei segítenek vállalkozásod számára a legfrissebb HACCP és munkavédelmi előírásoknak való megfelelésben, biztosítva a zökkenőmentes működést.",
   },
 ];
 
 const Hero = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <section className="relative w-full h-screen">
       {/* Swiper Slider */}
@@ -49,6 +55,7 @@ const Hero = () => {
           nextEl: ".hero-next",
           prevEl: ".hero-prev",
         }}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         className="w-full h-full"
       >
         {slides.map((slide, index) => (
@@ -69,20 +76,32 @@ const Hero = () => {
 
             {/* Content */}
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
-              <div className="flex flex-col items-center ">
-                <h1 className="text-5xl font-mono mb-4">{slide.title1}</h1>
-                <h1 className="text-5xl font-mono mb-4 text-[#CDAF50]">
+              <div className="flex flex-col items-center">
+                <h1 className="text-5xl font-mono mb-2 uppercase">
+                  {slide.title1}
+                </h1>
+                <h1 className="text-5xl font-mono mb-14 text-[#CDAF50] uppercase">
                   {slide.title2}
                 </h1>
               </div>
-              <p className="text-lg max-w-2xl">{slide.description}</p>
-              <button className="mt-6 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition">
-                Learn More
-              </button>
+              <p className="text-lg max-w-2xl mb-6">{slide.description}</p>
+              <Button text="Kérj ingyenes konzultációt" />
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Progress Dots */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+        {slides.map((_, index) => (
+          <div
+            key={index}
+            className={`w-3 h-3 rounded-full transition-all duration-300  ${
+              activeIndex === index ? "bg-primary w-5" : "bg-white/30"
+            }`}
+          />
+        ))}
+      </div>
 
       {/* Navigation Arrows */}
       <button className="z-20 hero-prev absolute left-6 top-1/2 transform -translate-y-1/2 text-white p-2 bg-black/50 rounded-full hover:bg-black/70">

@@ -17,25 +17,27 @@ const Page = () => {
   return (
     <div>
       {/* Full-Screen Hero Section */}
-      <section className="w-full h-screen">
+      <section className="w-full h-screen ">
         <Hero />
       </section>
 
       {/* Main Content (Centered) */}
-      <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-12">
-        <Partners />
-        <Regulations />
-        <Haccp />
-        <RiskAssessment />
-        <FireProtection />
-        <Audit />
-        <Tiers />
-        <Education />
-        <Legislation />
-        <Philosophy />
-        <RecommendedApp />
-        <Contact />
-      </div>
+
+      <Partners />
+      <Regulations />
+      <Haccp />
+      <RiskAssessment />
+      <FireProtection />
+      <Audit />
+      <Tiers />
+      <Education />
+      <Legislation />
+      <Philosophy />
+      <RecommendedApp />
+      <Contact />
+
+      {/** <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-12">
+      </div> */}
     </div>
   );
 };
