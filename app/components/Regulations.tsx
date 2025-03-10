@@ -15,14 +15,14 @@ const regulationImages = Array.from(
 // Titles for each image
 const regulationTitles = [
   "HAACCP",
-  "ISO 22000",
-  "FDA Compliance",
-  "GMP Standards",
-  "Food Safety",
-  "Quality Assurance",
-  "Environmental Health",
-  "Industry Regulations",
-  "Certification Process",
+  "kockázatértékelés",
+  "tűzvédelem",
+  "munkavédelem",
+  "audit",
+  "oktatás",
+  "jogszabályok",
+  "sattva filozófia",
+  "Qoodo alkalmazás",
 ];
 
 const Regulations = () => {
@@ -41,9 +41,9 @@ const Regulations = () => {
           }}
           breakpoints={{
             320: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-            1280: { slidesPerView: 4 },
+            640: { slidesPerView: 1.5 },
+            1024: { slidesPerView: 2 },
+            1280: { slidesPerView: 3 },
           }}
           className="w-full"
         >

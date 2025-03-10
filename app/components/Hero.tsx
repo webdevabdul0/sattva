@@ -77,14 +77,16 @@ const Hero = () => {
             {/* Content */}
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
               <div className="flex flex-col items-center">
-                <h1 className="text-5xl font-mono mb-2 uppercase">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-mono mb-2 uppercase">
                   {slide.title1}
                 </h1>
-                <h1 className="text-5xl font-mono mb-14 text-[#CDAF50] uppercase">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-mono mb-14 text-[#CDAF50] uppercase">
                   {slide.title2}
                 </h1>
               </div>
-              <p className="text-lg max-w-2xl mb-6">{slide.description}</p>
+              <p className="text-base sm:text-lg max-w-2xl mb-6">
+                {slide.description}
+              </p>
               <Button text="Kérj ingyenes konzultációt" />
             </div>
           </SwiperSlide>
@@ -104,10 +106,10 @@ const Hero = () => {
       </div>
 
       {/* Navigation Arrows */}
-      <button className="z-20 hero-prev absolute left-6 top-1/2 transform -translate-y-1/2 text-white p-2 bg-black/50 rounded-full hover:bg-black/70">
+      <button className="z-20 hidden sm:flex hero-prev absolute left-6 top-1/2 transform -translate-y-1/2 text-white p-2 bg-black/50 rounded-full hover:bg-black/70">
         <ChevronLeft size={32} />
       </button>
-      <button className="z-20 hero-next absolute right-6 top-1/2 transform -translate-y-1/2 text-white p-2 bg-black/50 rounded-full hover:bg-black/70">
+      <button className="z-20 hero-next hidden sm:flex absolute right-6 top-1/2 transform -translate-y-1/2 text-white p-2 bg-black/50 rounded-full hover:bg-black/70">
         <ChevronRight size={32} />
       </button>
     </section>
